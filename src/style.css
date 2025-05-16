@@ -1,3 +1,116 @@
+:root {
+  --link-color: #00acdc;
+}
+
+html {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  font-weight: 500; /* Medium */
+  font-style: normal; /* Roman (not italic) */
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 1024px;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+a {
+  display: inline-block;
+  align-items: center;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  position: relative; /* Needed for absolute positioning of ::after */
+  font-size: 12px;
+}
+
+/* Individual nav links */
+.nav-links li a {
+  align-items: center; /* Vertical center content */
+  height: 60px;
+}
+
+.logo-link {
+  margin-right: auto; /* Pushes nav to the right */
+  display: flex;
+  align-items: center;
+  height: 60px; /* Takes full header height */
+}
+
+.logo {
+  height: 40px; /* Adjust based on your logo */
+  width: 40px;
+  width: auto; /* Maintain aspect ratio */
+  margin-top: 10px;
+  padding: 0;
+}
+
+a.is-active {
+  color: #00acdc; /* Blue text color */
+}
+
+/* Specific hover style for testing link */
+a[data-qa='hover']:hover {
+  color: #00acdc; /* Light blue color for visibility */
+}
+
+.nav-links li a[data-qa='hover'] {
+  color: #00acdc;
+}
+
+.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #00acdc;
+  border-radius: 8px;
+}
+
+.nav-links li:first-child {
+  margin-left: 0;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+/* Underline effect for ALL links on hover */
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #00acdc; /* Semi-transparent white */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  color: #00acdc;
 }

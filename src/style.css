@@ -17,12 +17,14 @@ body {
 }
 
 .header {
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   min-width: 1024px;
+  padding-inline: 50px;
 }
 
 .nav {
@@ -39,12 +41,15 @@ a {
   align-items: center;
   height: 60px;
   line-height: 60px;
-  padding: 0 20px;
   text-decoration: none;
   font-weight: 500;
   color: black;
   position: relative; /* Needed for absolute positioning of ::after */
   font-size: 12px;
+}
+
+a:last-child {
+  margin-right: 0;
 }
 
 /* Individual nav links */
@@ -53,32 +58,25 @@ a {
   height: 60px;
 }
 
+li {
+  margin-right: 20px;
+}
+
 .logo-link {
-  margin-right: auto; /* Pushes nav to the right */
   display: flex;
   align-items: center;
-  height: 60px; /* Takes full header height */
 }
 
 .logo {
+  display: flex;
   height: 40px; /* Adjust based on your logo */
   width: 40px;
   width: auto; /* Maintain aspect ratio */
-  margin-top: 10px;
   padding: 0;
 }
 
 a.is-active {
   color: #00acdc; /* Blue text color */
-}
-
-/* Specific hover style for testing link */
-a[data-qa='hover']:hover {
-  color: #00acdc; /* Light blue color for visibility */
-}
-
-.nav-links li a[data-qa='hover'] {
-  color: #00acdc;
 }
 
 .is-active::after {
@@ -92,25 +90,10 @@ a[data-qa='hover']:hover {
   border-radius: 8px;
 }
 
-.nav-links li:first-child {
-  margin-left: 0;
-}
-
-.nav-links li:last-child {
+li:last-child {
   margin-right: 0;
 }
 
-/* Underline effect for ALL links on hover */
-
-.nav-link:hover::after {
-  content: '';
-  position: absolute;
-  bottom: 24px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #00acdc; /* Semi-transparent white */
-  border-radius: 2px;
-  transition: all 0.3s ease;
+.nav-link:hover {
   color: #00acdc;
 }
